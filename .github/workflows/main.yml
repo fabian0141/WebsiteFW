@@ -10,19 +10,18 @@ jobs:
     steps:
      - uses: actions/checkout@4
      - name: Setup Go 1.23.5
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.23.5'
+       uses: actions/setup-go@v5
+       with:
+         go-version: '1.23.5'
 
-      - name: Install dependencies
-        run: |
-          go get .
+     - name: Install dependencies
+       run: go get .
 
-      - name: Build
-        run: go build -v ./...
+     - name: Build
+       run: go build -v ./...
 
-      - name: Test with the Go CLI
-        run: go main
+     - name: Test with the Go CLI
+       run: go main
 
   Deploy:
     needs: Build
