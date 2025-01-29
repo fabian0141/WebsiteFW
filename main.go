@@ -148,6 +148,8 @@ func readCsvFile(filePath string) map[string][]byte {
 }
 
 func main() {
+	println("Start Serving")
+	
 	defer handleFatal()
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
@@ -165,7 +167,7 @@ func main() {
 	projectData = readCsvFile("static/projectpage/project.csv")
 
 	setupRoutes()
-	checkFatal(http.ListenAndServe("localhost:43543", nil))
+	checkFatal(http.ListenAndServe(":43543", nil))
 }
 
 func checkFatal(e error) {
