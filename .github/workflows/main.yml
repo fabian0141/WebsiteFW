@@ -20,6 +20,15 @@ jobs:
      - name: Build
        run: go build -v ./...
 
+     - name: test
+       run: ls
+
+     - name: Archive build artifacts
+       uses: actions/upload-artifact@v4
+       with:
+          name: website folder
+          path: WebsiteFW
+
   Deploy:
     needs: Build
     runs-on: self-hosted
@@ -27,7 +36,7 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4
         with:
-          name: WebsiteFW
+          name: website folder
           path: /home/Websites
       - name: Run Go
         run: ./main
