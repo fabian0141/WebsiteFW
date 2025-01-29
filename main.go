@@ -167,7 +167,7 @@ func main() {
 	projectData = readCsvFile("static/projectpage/project.csv")
 
 	setupRoutes()
-	checkFatal(http.ListenAndServe(":43543", nil))
+	checkFatal(http.ListenAndServe(":80", nil))
 }
 
 func checkFatal(e error) {
