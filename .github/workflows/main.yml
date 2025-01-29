@@ -27,7 +27,7 @@ jobs:
       - name: Download a Build Artifact
         uses: actions/download-artifact@v4
         with:
-          name: build folder
+          name: WebsiteFW
           path: /home/Websites
       - name: Run Go
         run: ./main
