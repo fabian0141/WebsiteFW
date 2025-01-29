@@ -20,9 +20,6 @@ jobs:
      - name: Build
        run: go build -v ./...
 
-     - name: Test with the Go CLI
-       run: go main
-
   Deploy:
     needs: Build
     runs-on: self-hosted
@@ -32,3 +29,5 @@ jobs:
         with:
           name: build folder
           path: /home/Websites
+      - name: Run Go
+        run: ./main
