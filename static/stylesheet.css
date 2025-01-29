@@ -10,8 +10,10 @@ body {
 
 .section-bg {
     position: relative;
-    display: flow-root;
-    background: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .section-title {
@@ -27,86 +29,8 @@ body {
 
 }
 
-.card-bg {
-    position: relative;
-    background: #333;
-    width: 380px;
-    float: left;
-    margin: 10px;
-    overflow:hidden;
-    padding: 0 0 10px 0;
-}
-
-.card-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-}
-
-.card-hover:hover {
-    background: #FFF2;
-}
-
-.card-img {
-    width: 400px;
-}
-
 .tag {
     margin: 3px 1px;
-}
-
-.top-slides {
-    width: 100%;
-    height: 600px;
-}
-
-.top-slides-img {
-    overflow: hidden;
-    background-color: #222;
-    height: 600px;
-    display: flex;
-    align-items: center;
-}
-
-.top-slides-img img {
-    width: 100%;
-    padding: 10px;
-    max-height: 500px;
-    object-fit: cover;
-    object-position: top left;
-}
-
-.top-slides-info {
-    float: right;
-    width: 400px;
-
-}
-
-#profile-pic {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-}
-
-.strengths-bar-con {
-    position: relative;
-    padding: 5px;
-}
-
-.strengths-bar {
-    position: absolute;
-    height: 10px;
-    width: 300px;
-    border-radius: 5px;
-}
-
-.strengths-fg {
-    background-color: #009688;
-}
-
-.strengths-bg {
-    background-color: #b0f6e8;
 }
 
 li {
@@ -114,4 +38,69 @@ li {
     margin-right: 40px;
 }
 
+#more-projects-button {
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    color: #888;
+    margin-bottom: 20px;
+}
 
+#less-projects-button {
+    display: none;
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+#more-projects-button:hover {
+    color: #fff;
+}
+
+#less-projects-button:hover {
+    color: #fff;
+}
+
+#more-projects {
+    display: none;
+}
+
+li {
+    font-size: x-large;
+}
+
+@media only screen and (max-width: 1199px) {
+    .section-narrow {
+        width: 100%;
+    }
+
+    h3 {
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 749px) {
+    .tag {
+        padding: 3px 6px !important;
+    }
+
+    h1 {
+        font-size: xx-large;
+    }
+
+    h2 {
+        font-size: x-large;
+    }
+
+    h3 {
+        font-size: medium;
+    }
+
+    li {
+        font-size: large;
+    }    
+}

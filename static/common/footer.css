@@ -1,0 +1,94 @@
+.side-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #555;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.side-info {
+    display: flex;
+    align-items: end;
+    width: 1200px;
+}
+
+.filler {
+    flex-grow: 1;
+}
+
+#lang-text {
+    font-size: x-large;
+    margin-right: 10px;
+    color: #ccc;
+    line-height: 50px;
+}
+
+#contacts-text {
+    font-size: x-large;
+    margin-left: 40px;
+    color: #ccc;
+    line-height: 50px;
+}
+
+.lang-button {
+    background-color: #009688;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    padding: 2px 1px;
+    cursor: pointer;
+
+}
+
+.lang-img {
+    width: 46px;
+}
+
+.side-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+.side-img-extra {
+    transform: translateX(2px);
+}
+
+.side-img {
+    width: 40px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .side-button {
+        margin-left: 10px;
+    }
+
+    .side-info {
+        width: 100%;
+    }    
+}
+
+@media only screen and (max-width: 749px) {
+    .lang-text {
+        display: none;
+    }
+
+    .contacts-text {
+        display: none;
+    }
+
+    .side-button {
+        margin-left: 10px;
+    }
+    
+}

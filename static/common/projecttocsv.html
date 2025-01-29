@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Preview Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+    }
+    textarea, input {
+      width: 1200px;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .preview {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .csv-output {
+      margin-top: 20px;
+      margin-bottom: 500px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Project Information Preview</h1>
+
+    <label for="projID">Project ID</label>
+    <input type="text" id="projID" placeholder="Enter the project id" oninput="updatePreview()">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" placeholder="Enter the title" oninput="updatePreview()">
+
+    <label for="general-info">General Information</label>
+    <textarea id="general-info" rows="30" placeholder="Enter general information" oninput="updatePreview()"></textarea>
+
+    <label for="technologies">Technologies</label>
+    <textarea id="technologies" rows="30" placeholder="List the technologies" oninput="updatePreview()"></textarea>
+
+    <label for="other-info">Other Info</label>
+    <textarea id="other-info" rows="10" placeholder="Enter any other information" oninput="updatePreview()"></textarea>
+
+    <label for="tags">Tags</label>
+    <input type="text" id="tags" placeholder="Enter tags separated by semicolon" oninput="updatePreview()">
+
+    <div class="preview" id="preview">
+      <!-- The preview will be displayed here -->
+    </div>
+
+    <div class="csv-output" id="csv-output">
+      <!-- The CSV output will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    function updatePreview() {
+      const projectID = document.getElementById('projID').value;
+      const title = document.getElementById('title').value;
+      const generalInfo = document.getElementById('general-info').value;
+      const technologies = document.getElementById('technologies').value;
+      const otherInfo = document.getElementById('other-info').value;
+      const tags = document.getElementById('tags').value;
+
+      // Update the preview section
+      const preview = document.getElementById('preview');
+      preview.innerHTML = `
+        <h2>${title}</h2>
+        <h3>General Information</h3>
+        <p>${generalInfo}</p>
+        <h3>Technologies</h3>
+        <p>${technologies}</p>
+        <h3>Other Info</h3>
+        <p>${otherInfo}</p>
+        <h3>Tags</h3>
+        <p>${tags.split(',').map(tag => `<span style='background-color: #e1e1e1; padding: 2px 6px; margin-right: 5px; border-radius: 3px;'>${tag.trim()}</span>`).join(' ')}</p>
+      `;
+
+      // Update the CSV output section
+      const csvOutput = document.getElementById('csv-output');
+      const csvContent = `"${projectID}","${title}","${generalInfo}","${technologies}","${otherInfo}","${tags}"`;
+      csvOutput.textContent = csvContent;
+    }
+  </script>
+</body>
+</html>

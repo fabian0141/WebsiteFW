@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fabian Wigger</title>
+        <link rel="stylesheet" href="/static/w3.css">
+        <link rel="stylesheet" href="/static/projectpage/index.css">
+        <link rel="stylesheet" href="/static/common/footer.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    </head>
+
+    <body style="position: relative; background-color: #333;">
+        <div class="return-bar">
+            <a href="../" id="return-button"><button><h2 id="return-text" style="margin: 0;">❮ Back</h2></button></a>
+            <a href="../" id="return-button-small"><button><h2 style="margin: 0;">❮</h2></button></a>
+            <h2 id="proj-name">Webseite für Freiwillige Feuerwehr Büsingen</h2><br>
+        </div>
+
+        <div class="section-top" style="background-color: #111;">
+            <div class="slides-container">
+                <img class="project-slide" src="/static/images/projects/BuesFWScreen.png">
+                <img class="project-slide" src="/static/images/projects/BuesFWScreen.png">
+                <img class="project-slide" src="/static/images/projects/BuesFWScreen.png">
+            </div>
+            
+            <div class="w3-center">
+                <div class="w3-section">
+                    <button id="prev-button" class="carousel-button" onclick="plusDivs(-1)">❮ Prev</button>
+                    <button class="demo" onclick="currentDiv(1)">1</button> 
+                    <button class="demo" onclick="currentDiv(2)">2</button> 
+                    <button class="demo" onclick="currentDiv(3)">3</button> 
+                    <button id="next-button" class="carousel-button" onclick="plusDivs(1)">Next ❯</button>
+                </div>
+
+                <div class="card-tags">
+                    <span class="tag w3-teal w3-tag w3-padding w3-round w3-center">2020</span>
+                    <span class="tag w3-teal w3-tag w3-padding w3-round w3-center">HTML+CSS+JS</span>
+                    <span class="tag w3-teal w3-tag w3-padding w3-round w3-center">PHP</span>
+                    <span class="tag w3-teal w3-tag w3-padding w3-round w3-center">From Scratch</span>
+                    <span class="tag w3-teal w3-tag w3-padding w3-round w3-center">2020</span>
+                </div>
+            </div>
+        </div>
+        <div class="section-bottom" style="background-color: #333;">
+            <h2 id="general-text">Generell:</h2>
+            <h3>Website for local firefighters</h3><br>
+
+            <h2 id="technologies-text">Technologie:</h2>
+            <h3>Website for local firefighters</h3><br>
+
+            <h2 id="other-text">Sonstiges:</h2>
+            <h3>Website for local firefighters</h3>
+        </div>
+
+        <insert file="static/common/footer.html">
+
+        <script type="text/javascript" src="static/projectpage/project.js"></script>
+        <script type="text/javascript" src="static/common/lang.js"></script>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+.skill-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.skill-group {
+    margin: 0px 20px;
+    float: left;
+}
+
+.skill-group-name {
+    margin: 10px 20px;
+}
+
+.skill-name {
+    width: 130px;
+    word-wrap: break-word;
+    margin-right: 10px;
+}
+
+.skill-cell {
+    display: flex;
+    align-items: center;
+}
+
+.profile-info {
+    padding: 20px;
+}
+
+#profile-pic {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.strengths-bar-con {
+    position: relative;
+    height: 10px;
+    width: 250px;
+}
+
+.strengths-bar {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.strengths-fg {
+    position: absolute;
+    background-color: #009688;
+}
+
+.strengths-bg {
+    position: absolute;
+    background-color: #b0f6e8;
+}
+
+
+
+@media only screen and (max-width: 1199px) {
+    .skill-group {
+        float: none;
+        margin: 0px 10px;
+    }
+
+    .skill-container {
+        padding: 20px 0px;
+    }
+
+
+}
+
+@media only screen and (max-width: 749px) {
+
+    .skill-container {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 419px) {
+
+    .strengths-bar-con {
+        width: 200px;
+    }
+}
