@@ -55,6 +55,10 @@
     background-image: linear-gradient(transparent, #333);
 }
 
+.card-tags {
+    flex-grow: 1;
+}
+
 @media only screen and (max-width: 1199px) {
     .top-slides-info {
         width: 750px;
@@ -79,6 +83,10 @@
 
     .top-slides-img video {
         padding: 0px;
+    }
+
+    .top-card-tags .tag {
+        padding: 3px 6px !important;
     }
 }
 

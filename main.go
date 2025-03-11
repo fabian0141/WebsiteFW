@@ -133,7 +133,11 @@ func main() {
 	compileProjectPage(htmlFiles)
 
 	readDataFile()
-
 	setupRoutes()
-	checkFatal(http.ListenAndServe(":80", nil))
+
+	if settings[1] == "localhost" {
+		checkFatal(http.ListenAndServe(":80", nil))
+	} else {
+		checkFatal(http.ListenAndServeTLS(":80", settings[2], settings[3], nil))
+	}
 }

@@ -79,7 +79,7 @@ function addTitle(projectData, name) {
     project.innerHTML = html + `</div>
         <div class="top-slides-info w3-container w3-center">
             <h2><b>` + projectData["title"] + `</b></h2>
-            <div class="card-tags">
+            <div class="top-card-tags">
                 ` + addTags(tags) + `
             </div>
             <div style="position: relative;">
