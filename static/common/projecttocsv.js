@@ -59,7 +59,7 @@ function updatePreviewPeriodically() {
 }
 
 fetchData().then(() => {
-    console.log(data);
+    //console.log(data);
     showOptions();
 });
 
@@ -123,7 +123,7 @@ function selectProject() {
     var newData = data[projID][lang];
     if (newData != null) {
         projectData = structuredClone(newData)
-        console.log(projID, lang, projectData);
+        //console.log(projID, lang, projectData);
 
         projectID.value = projID;
         projectPrio.value =  data[projID].prio;
