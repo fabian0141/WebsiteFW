@@ -18,7 +18,6 @@ async function fetchData() {
         date = localStorage.getItem("date", 0);
         data = JSON.parse(localStorage.getItem("data"));
     }
-    console.log(date, data)
 }
 
 function saveData() {
@@ -27,7 +26,6 @@ function saveData() {
             alert("Could not save");
         } else {
             response.json().then((json) => {
-                console.log(json)
                 localStorage.setItem("date", json["date"]);
                 data["date"] = json["date"];
                 localStorage.setItem("data", JSON.stringify(data));

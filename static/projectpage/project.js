@@ -111,9 +111,9 @@ function setFields(data) {
             const visual = document.createElement("div");
             visual.className = "project-slide"
             if (captions[i] == "") {
-                visual.innerHTML = '<video width="100%" autoplay controls loop><source src="' + visuals[i] + '"></video>' //TODO: pause when hidden
+                visual.innerHTML = '<video width="100%" autoplay controls loop muted><source src="' + visuals[i] + '"></video>' //TODO: pause when hidden
             } else {
-                visual.innerHTML = '<video width="100%" autoplay controls loop><source src="' + visuals[i] + '"></video><h3 class="captions">' + captions[i] + '</h3>'
+                visual.innerHTML = '<video width="100%" autoplay controls loop muted><source src="' + visuals[i] + '"></video><h3 class="captions">' + captions[i] + '</h3>'
             }
             projVisuals.appendChild(visual);
         } else {

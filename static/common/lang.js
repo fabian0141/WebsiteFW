@@ -3,7 +3,6 @@ getLang();
 
 function getLang() {
     var lang = localStorage.getItem('language');
-    console.log(lang, lang == "undefined")
     if (lang === null || lang == "undefined") {
         var browserLang = navigator.language;
         if (browserLang.startsWith("de")) {
@@ -11,7 +10,6 @@ function getLang() {
         } else {
             lang = "ENG";
         }
-        console.log(browserLang, lang);
     }
 
     var id;
@@ -20,7 +18,6 @@ function getLang() {
     } else if (lang == "ENG") {
         id = "lang-deu";
     }
-    console.log(id, lang);
     changeLang(id, lang);
 }
 
@@ -36,7 +33,6 @@ function changeLang(id, newLang) {
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
-    console.log(id, lang, page);
     x = document.getElementById(id);
     x.style.display = "block";
 
@@ -48,15 +44,12 @@ function changeLang(id, newLang) {
 }
 
 function setMainLang() {
-    console.log(lang);
     switch(lang) {
         case "DEU":
             var x = document.getElementsByClassName("more-info-text");
             for (i = 0; i < x.length; i++) {
                 x[i].textContent = " Mehr Info ";
             }
-            console.log(lang);
-
 
             document.getElementById("project-title-text").textContent = "Professionelle / Persönliche Projekte";
             document.getElementById("more-projects-button").textContent = "Zeige mehr";
@@ -84,7 +77,10 @@ function setMainLang() {
             document.getElementById("int-cooking").textContent = "Kochen";
 
             document.getElementById("aboutme-title").textContent = "Über Mich";
-            document.getElementById("aboutme-text").innerHTML = `Ich bin eine vielseitige und hilfsbereite Person, die ihre Zeit gerne nutzt, um andere zu unterstützen und Neues zu entdecken. Ob beim Programmieren, dem Reparieren von Geräten oder bei meiner Tätigkeit in der Freiwilligen Feuerwehr – ich genieße es, praktische Lösungen zu finden und einen Beitrag zu leisten.
+            document.getElementById("aboutme-text").innerHTML = `
+            Ich habe erfolgreich meinen Bachelor in Informatik am KIT in Karlsruhe beendet und bin nun auf der Suche nach einem Software Entwickler Beruf. Besonders interessieren mich Berufe im Bereich High-Performance Computing.
+            <br><br>
+            Ich bin eine vielseitige und hilfsbereite Person, die ihre Zeit gerne nutzt, um andere zu unterstützen und Neues zu entdecken. Ob beim Programmieren, dem Reparieren von Geräten oder bei meiner Tätigkeit in der Freiwilligen Feuerwehr – ich genieße es, praktische Lösungen zu finden und einen Beitrag zu leisten.
             <br><br>
             Sport spielt ebenfalls eine wichtige Rolle in meinem Leben: Ich schwimme, fahre Fahrrad, spiele Basketball und Volleyball, tanze leidenschaftlich gern und scheue auch im Winter nicht davor zurück, kurze Hosen zu tragen.
             <br><br>
@@ -116,13 +112,16 @@ function setMainLang() {
             document.getElementById("skill-3d-text").textContent = "3D Development";
 
             document.getElementById("aboutme-title").textContent = "About me";
-            document.getElementById("aboutme-text").innerHTML = `Ich bin eine vielseitige und hilfsbereite Person, die ihre Zeit gerne nutzt, um andere zu unterstützen und Neues zu lernen. Ob beim Programmieren, dem Reparieren von Geräten oder bei meiner Unterstützung in der Freiwilligen Feuerwehr – ich genieße es, praktische Lösungen zu finden und einen Beitrag zu leisten.
+            document.getElementById("aboutme-text").innerHTML = `
+            I successfully completed my Bachelor's degree in Computer Science at KIT in Karlsruhe and am now looking for a job as a software developer. I am particularly interested in positions in the field of High-Performance Computing.
             <br><br>
-            Sport spielt ebenfalls eine wichtige Rolle in meinem Leben: Ich schwimme, fahre Fahrrad, spiele Basketball und Volleyball, tanze leidenschaftlich gern und scheue auch im Winter nicht davor zurück, kurze Hosen zu tragen.
+            I am a versatile and helpful person who enjoys using my time to support others and learn new things. Whether it's programming, repairing devices, or assisting in the volunteer fire department – I love finding practical solutions and making a contribution.
             <br><br>
-            Meine Interessen in Computergrafik, Simulationen und künstlicher Intelligenz verbinden Technik mit Kreativität. Diese Leidenschaft zeigt sich auch, wenn ich Kostüme bastle oder Designs in GIMP erstelle – hier vereinen sich meine technischen Fähigkeiten und meine Freude am kreativen Gestalten. Das passt perfekt zu meiner Begeisterung fürs Programmieren, wo ich mich in ähnlicher Weise ausleben kann.
+            Sports also play an important role in my life: I swim, cycle, play basketball and volleyball, have a passion for dancing, and don’t shy away from wearing shorts even in winter.
             <br><br>
-            In meiner Freizeit finde ich außerdem Spaß an Brettspielen, Computerspielen und Kochen. Ich bin jemand, der gerne aktiv ist und immer nach neuen Herausforderungen sucht – sei es in der Softwareentwicklung oder in meiner Freizeit.`;
+            My interests in computer graphics, simulations, and artificial intelligence combine technology with creativity. This passion is also reflected in my hobby of crafting costumes or designing in GIMP – where my technical skills and love for creative design come together. This aligns perfectly with my enthusiasm for programming, which allows me to express myself in a similar way.
+            <br><br>
+            In my free time, I also enjoy board games, video games, and cooking. I am someone who loves being active and always seeks new challenges – whether in software development or my personal life.`;
 
             document.getElementById("interests-title").textContent = "Interests / Freetime";
             document.getElementById("int-swimmming").textContent = "Swimming";

@@ -18,7 +18,6 @@ function showDivs() {
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";  
     }
-    console.log(slideIndex, x[slideIndex]);
     x[slideIndex].style.display = "flex";  
     slideIndex = (slideIndex + 1) % x.length;
 }
@@ -59,14 +58,25 @@ function getData() {
 }
 
 function addTitle(projectData, name) {
-    var tags = projectData["tags"].split(";");
+    if (projectData === undefined) {
+        return;
+    }
 
+    var tags =  projectData["tags"].split(";");
     const project = document.createElement("div");
+
     project.className = "top-slides"
-    project.innerHTML = `
-        <div class="top-slides-img">
-            <img src="` + projectData["visuals"].split(";")[0] + `">
-        </div>
+    let url = projectData["visuals"].split(";")[0];
+    let html = '<div class="top-slides-img">';
+    if (url.endsWith("png")) {
+        html += '<img src="' + url + '">';
+    } else if (url.endsWith("mp4")) {
+        html += '<video autoplay loop muted><source src="' + url + '"></video>';
+    }
+
+            
+
+    project.innerHTML = html + `</div>
         <div class="top-slides-info w3-container w3-center">
             <h2><b>` + projectData["title"] + `</b></h2>
             <div class="card-tags">
@@ -84,15 +94,24 @@ function addTitle(projectData, name) {
 }
 
 function addProject(isMain, projectData, name) {
-    console.log(isMain, projectData)
+    if (projectData === undefined) {
+        return;
+    }
+
     var tags = projectData["tags"].split(";");
 
     const project = document.createElement("div");
     project.className = "card-bg"
-    project.innerHTML = `
-        <div class="card-top">
-            <img src="` + projectData["visuals"].split(";")[0] + `" class="card-img w3-round">
-        </div>
+    let html = '<div class="card-top">';
+
+    let url = projectData["visuals"].split(";")[0];
+    if (url.endsWith("png")) {
+        html += '<img src="' + url + '" class="card-img w3-round">';
+    } else if (url.endsWith("mp4")) {
+        html += '<video autoplay loop muted class="card-vid w3-round"><source src="' + url + '"></video>';
+    }
+
+    project.innerHTML = html + `</div>
         <div class="w3-container w3-center card-bottom">
             <p class="card-title"><b>` + projectData["title"] + `</b></p>
             <div class="card-tags">
