@@ -1,3 +1,4 @@
+var lang = "ENG";
 getLang();
 
 function getLang() {
@@ -23,10 +24,11 @@ function getLang() {
     changeLang(id, lang);
 }
 
-function changeLang(id, lang) {
-    if (lang === null) {
+function changeLang(id, newLang) {
+    if (newLang === null) {
         return
     }
+    lang = newLang;
 
     localStorage.setItem('language', lang);
 
@@ -39,13 +41,13 @@ function changeLang(id, lang) {
     x.style.display = "block";
 
     if (page == "main") {
-        setMainLang(lang);
+        setMainLang();
     } else if (page == "project") {
-        setProjectLang(lang);
+        setProjectLang();
     }
 }
 
-function setMainLang(lang) {
+function setMainLang() {
     console.log(lang);
     switch(lang) {
         case "DEU":
@@ -138,9 +140,10 @@ function setMainLang(lang) {
             document.getElementById("contacts-text").textContent = "Contact me: ";
             break;
     }
+    getData();
 }
 
-function setProjectLang(lang) {
+function setProjectLang() {
 
     switch(lang) {
         case "DEU":
@@ -166,4 +169,5 @@ function setProjectLang(lang) {
             document.getElementById("contacts-text").textContent = "Contact me: ";
             break;
     }
+    getData();
 }

@@ -34,6 +34,19 @@
     width: 400px;
 }
 
+.short-general {
+    overflow: hidden;
+    height: 200px;
+}
+
+.short-overlay {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background-image: linear-gradient(transparent, #333);
+}
+
 @media only screen and (max-width: 1199px) {
     .top-slides-info {
         width: 750px;

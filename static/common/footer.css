@@ -79,11 +79,11 @@
 }
 
 @media only screen and (max-width: 749px) {
-    .lang-text {
+    #lang-text {
         display: none;
     }
 
-    .contacts-text {
+    #contacts-text {
         display: none;
     }
 
