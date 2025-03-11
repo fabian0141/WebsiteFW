@@ -138,6 +138,6 @@ func main() {
 	if settings[1] == "localhost" {
 		checkFatal(http.ListenAndServe(":80", nil))
 	} else {
-		checkFatal(http.ListenAndServeTLS(":80", settings[2], settings[3], nil))
+		checkFatal(http.ListenAndServeTLS(":443", settings[2], settings[3], nil))
 	}
 }
