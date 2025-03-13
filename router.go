@@ -7,25 +7,70 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"time"
 )
+
+type loggingResponseWriter struct {
+	http.ResponseWriter
+	statusCode int
+	size       int
+}
+
+func (lw *loggingResponseWriter) WriteHeader(code int) {
+	lw.statusCode = code
+	lw.ResponseWriter.WriteHeader(code)
+}
+
+func (lw *loggingResponseWriter) Write(b []byte) (int, error) {
+	size, err := lw.ResponseWriter.Write(b)
+	lw.size += size
+	return size, err
+}
+
+func loggingMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+
+		lw := &loggingResponseWriter{ResponseWriter: w, statusCode: http.StatusOK}
+
+		// Call the next handler
+		next.ServeHTTP(lw, r)
+
+		// Create log entry
+		logEntry := fmt.Sprintf("%s - - [%s] \"%s %s %s\" %d %d\n",
+			r.RemoteAddr,
+			time.Now().Format("02/Jan/2006:15:04:05 -0700"),
+			r.Method,
+			r.URL.Path,
+			r.Proto,
+			lw.statusCode, // Default response code (consider wrapping ResponseWriter to capture actual codes)
+			lw.size,       // Placeholder for response size
+		)
+
+		// Write log to file
+		logFile, err := os.OpenFile("../Logs/WebsiteFW.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if checkError(err) {
+			return
+		}
+		defer logFile.Close()
+		logFile.WriteString(logEntry)
+	})
+}
 
 func setupRoutes() {
 	fileServer := http.FileServer(http.Dir("./static"))
-	http.HandleFunc("/", showMain)
-	http.HandleFunc("/project", showProject)
-	http.HandleFunc("/data", getProjectData)
-	http.HandleFunc("/project-info-to-csv", showPItoCSV)
-	http.Handle("/static/", http.StripPrefix("/static/", fileServer))
+	http.Handle("/", loggingMiddleware(http.HandlerFunc(showMain)))
+	http.Handle("/project", loggingMiddleware(http.HandlerFunc(showProject)))
+	http.Handle("/data", loggingMiddleware(http.HandlerFunc(getProjectData)))
+	http.Handle("/project-info-to-csv", loggingMiddleware(http.HandlerFunc(showPItoCSV)))
+	http.Handle("/static/", loggingMiddleware(http.StripPrefix("/static/", fileServer)))
 }
 
 func showMain(w http.ResponseWriter, r *http.Request) {
-	println(r.URL.Path[1:])
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprint(w, mainPage)
 }
 
 func showProject(w http.ResponseWriter, r *http.Request) {
-	println(r.URL.Path)
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	fmt.Fprint(w, projectPage)
 }

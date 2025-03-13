@@ -120,6 +120,11 @@ function insertOrder(projID) {
 function selectProject() {
     var projID = document.getElementById("projects").value;
     lang = document.getElementById("language").value;
+
+    if (projID == "new") {
+        projectData = {};
+        return;
+    }
     var newData = data[projID][lang];
     if (newData != null) {
         projectData = structuredClone(newData)
@@ -136,6 +141,8 @@ function selectProject() {
         captions.value = projectData.captions;
         changed = true;
     } else {
+        projectID.value = projID;
+        projectPrio.value =  data[projID].prio;
         projectData = {};
     } 
 }
