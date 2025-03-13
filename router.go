@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"strconv"
@@ -30,6 +31,11 @@ func (lw *loggingResponseWriter) Write(b []byte) (int, error) {
 func loggingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
+		ip, _, err := net.SplitHostPort(r.RemoteAddr)
+		if err != nil {
+			ip = r.RemoteAddr // Fallback to full address if parsing fails
+		}
+
 		lw := &loggingResponseWriter{ResponseWriter: w, statusCode: http.StatusOK}
 
 		// Call the next handler
@@ -37,7 +43,7 @@ func loggingMiddleware(next http.Handler) http.Handler {
 
 		// Create log entry
 		logEntry := fmt.Sprintf("%s - - [%s] \"%s %s %s\" %d %d\n",
-			r.RemoteAddr,
+			ip,
 			time.Now().Format("02/Jan/2006:15:04:05 -0700"),
 			r.Method,
 			r.URL.Path,
