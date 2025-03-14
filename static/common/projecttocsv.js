@@ -114,7 +114,7 @@ function insertOrder(projID) {
             return;
         }
     }
-    data["order"].append(projID);
+    data["order"].push(projID);
 }
 
 
