@@ -103,8 +103,13 @@ func readDataFile() {
 	_, err = file.Read(data)
 	checkFatal(err)
 
-	dataDate = int64(binary.LittleEndian.Uint64(data[:8]))
-	projectData = data[8:]
+	if len(data) > 0 {
+		dataDate = int64(binary.LittleEndian.Uint64(data[:8]))
+		projectData = data[8:]
+	} else {
+		dataDate = time.Now().UnixNano()
+		projectData = []byte(fmt.Sprintf("{date: %d, order:[]}", dataDate))
+	}
 }
 
 func main() {

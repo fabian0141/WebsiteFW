@@ -111,9 +111,10 @@ function insertOrder(projID) {
     for (let i = 0; i < order.length; i++) {
         if (prio < data[order[i]].prio) {
             data["order"].splice(i, 0, projID);
-            break;
+            return;
         }
     }
+    data["order"].append(projID);
 }
 
 
