@@ -34,7 +34,7 @@ function showMoreProjects(showMore) {
 
 const titleProjects = document.getElementById('title-projects');
 const mainProjects = document.getElementById('main-projects');
-const moreProjects = document.getElementById('more--projects');
+const moreProjects = document.getElementById('more-projects');
 
 function getData() {
     fetchData().then(() => {

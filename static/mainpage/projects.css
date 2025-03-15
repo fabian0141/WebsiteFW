@@ -19,7 +19,7 @@
 }
 
 .card-img {
-    width: 380px;
+    max-width: 380px;
     height: 200px;
 }
 
@@ -67,7 +67,7 @@
 
 @media only screen and (max-width: 1199px) {
     .card-img {
-        width: 350px;
+        max-width: 350px;
     }
 
     .card-bottom {
