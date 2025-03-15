@@ -39,6 +39,7 @@ const moreProjects = document.getElementById('more-projects');
 function getData() {
     fetchData().then(() => {
         mainProjects.innerHTML = "";
+        moreProjects.innerHTML = "";
 
         var order = data["order"];
         for (let i = 0; i < order.length; i++) {

@@ -112,6 +112,10 @@ func readDataFile() {
 	}
 }
 
+func redirectToHTTPS(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
+}
+
 func main() {
 	println("Start Serving")
 
@@ -143,6 +147,11 @@ func main() {
 	if settings[1] == "localhost" {
 		checkFatal(http.ListenAndServe(":80", nil))
 	} else {
+		go func() {
+			err := http.ListenAndServe(":80", http.HandlerFunc(redirectToHTTPS))
+			checkFatal(err)
+		}()
+
 		checkFatal(http.ListenAndServeTLS(":443", settings[2], settings[3], nil))
 	}
 }
