@@ -115,10 +115,11 @@ function addProject(isMain, projectData, name) {
     project.innerHTML = html + `</div>
         <div class="w3-container w3-center card-bottom">
             <p class="card-title"><b>` + projectData["title"] + `</b></p>
+            <a href="/project?project=` + name + `"><button class="w3-button card-info w3-round more-info-text">Mehr Info</button>
+
             <div class="card-tags">
                 ` + addTags(tags) + `
             </div>
-            <a href="/project?project=` + name + `"><button class="w3-button card-info w3-round more-info-text">Mehr Info</button>
         </div>
     `        
     if (isMain) {
