@@ -102,18 +102,18 @@ function setFields(data) {
             const visual = document.createElement("div");
             visual.className = "project-slide"
             if (captions[i] == "") {
-                visual.innerHTML = '<img class="" src="' + visuals[i] + '" width="80%">'
+                visual.innerHTML = '<img class="project-image" src="' + visuals[i] + '">'
             } else {
-                visual.innerHTML = '<img class="" src="' + visuals[i] + '" width="80%"><h3 class="captions">' + captions[i] + '</h3>'
+                visual.innerHTML = '<img class="project-image" src="' + visuals[i] + '"><h3 class="captions">' + captions[i] + '</h3>'
             }
             projVisuals.appendChild(visual);
         } else if (visuals[i].endsWith("mp4")) {
             const visual = document.createElement("div");
             visual.className = "project-slide"
             if (captions[i] == "") {
-                visual.innerHTML = '<video width="80%" autoplay controls loop muted><source src="' + visuals[i] + '"></video>' //TODO: pause when hidden
+                visual.innerHTML = '<video class="project-video" width="80%" autoplay controls loop muted><source src="' + visuals[i] + '"></video>' //TODO: pause when hidden
             } else {
-                visual.innerHTML = '<video width="80%" autoplay controls loop muted><source src="' + visuals[i] + '"></video><h3 class="captions">' + captions[i] + '</h3>'
+                visual.innerHTML = '<video class="project-video" autoplay controls loop muted><source src="' + visuals[i] + '"></video><h3 class="captions">' + captions[i] + '</h3>'
             }
             projVisuals.appendChild(visual);
         } else {
