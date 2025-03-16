@@ -141,7 +141,6 @@
 
 .external-website {
     width: 100%;
-    height: 655px;
     border: none;
 }
 
@@ -178,13 +177,7 @@
         padding: 0px 125px;
     }
 
-    .external-website {
-        height: 100%;
-        border: none;
-        overflow: hidden;
-    }
-
-    .project-image, .project-video {
+    .project-slide {
         height: 430px;
     }
 }
