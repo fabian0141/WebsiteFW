@@ -28,8 +28,8 @@ function showMoreProjects(showMore) {
     var lessProjectsButton = document.getElementById("less-projects-button");
 
     moreProjects.style.display = showMore ? "flex" : "none";
-    moreProjectsButton.style.display = showMore ? "none" : "flex";
-    lessProjectsButton.style.display = showMore ? "flex" : "none";
+    moreProjectsButton.style.display = showMore ? "none" : "block";
+    lessProjectsButton.style.display = showMore ? "block" : "none";
 }
 
 const titleProjects = document.getElementById('title-projects');
