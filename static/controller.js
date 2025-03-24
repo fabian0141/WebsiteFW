@@ -38,6 +38,7 @@ const moreProjects = document.getElementById('more-projects');
 
 function getData() {
     fetchData().then(() => {
+        titleProjects.innerHTML = "";
         mainProjects.innerHTML = "";
         moreProjects.innerHTML = "";
 

@@ -72,7 +72,7 @@ func compileProjectPage(htmlFiles []string) {
 	}
 }
 
-func saveDataFile() bool {
+func saveDataFile(body []byte) bool {
 	file, err := os.OpenFile(dataPath, os.O_WRONLY, 0666)
 	if checkError(err) {
 		return false
@@ -87,7 +87,7 @@ func saveDataFile() bool {
 	data := make([]byte, 8)
 	dataDate = time.Now().UnixNano()
 	binary.LittleEndian.PutUint64(data, uint64(dataDate))
-	data = append(data, projectData...)
+	data = append(data, body...)
 	_, err = file.Write(data)
 	return !checkError(err)
 }
@@ -105,10 +105,11 @@ func readDataFile() {
 
 	if len(data) > 0 {
 		dataDate = int64(binary.LittleEndian.Uint64(data[:8]))
-		projectData = data[8:]
+		projectData = []byte(fmt.Sprintf("[%d,%s]", dataDate, string(data[8:])))
+
 	} else {
 		dataDate = time.Now().UnixNano()
-		projectData = []byte(fmt.Sprintf("{date: %d, order:[]}", dataDate))
+		projectData = []byte(fmt.Sprintf("[%d,{order:[]}]", dataDate))
 	}
 }
 

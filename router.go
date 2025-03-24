@@ -118,12 +118,13 @@ func getProjectData(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		projectData = body
-		if !saveDataFile() {
+		if !saveDataFile(body) {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		w.Write([]byte("{\"date\":" + fmt.Sprint(dataDate) + "}"))
+
+		projectData = []byte(fmt.Sprintf("[%d,%s]", dataDate, string(body)))
+		w.Write([]byte(fmt.Sprint(dataDate)))
 
 	default:
 		w.WriteHeader(http.StatusMethodNotAllowed)
