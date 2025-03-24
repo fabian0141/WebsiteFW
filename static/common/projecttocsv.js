@@ -93,12 +93,13 @@ function deleteProject() {
 
 function saveProject() {
     var projID = projectID.value;
-
-    if (data[projID] == null) {
-        data[projID] = {"prio": Number(projectPrio.value)};
-        insertOrder(projID);
+    if (projID != "") {
+        if (data[projID] == null) {
+            data[projID] = {"prio": Number(projectPrio.value)};
+            insertOrder(projID);
+        }
+        data[projID][lang] = projectData;
     }
-    data[projID][lang] = projectData;
 
     saveData();
     showOptions();
