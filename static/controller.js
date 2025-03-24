@@ -27,9 +27,9 @@ function showMoreProjects(showMore) {
     var moreProjectsButton = document.getElementById("more-projects-button");
     var lessProjectsButton = document.getElementById("less-projects-button");
 
-    moreProjects.style.display = showMore ? "Block" : "None";
-    moreProjectsButton.style.display = showMore ? "None" : "Block";
-    lessProjectsButton.style.display = showMore ? "Block" : "None";
+    moreProjects.style.display = showMore ? "flex" : "none";
+    moreProjectsButton.style.display = showMore ? "none" : "flex";
+    lessProjectsButton.style.display = showMore ? "flex" : "none";
 }
 
 const titleProjects = document.getElementById('title-projects');
