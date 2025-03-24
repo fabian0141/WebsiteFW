@@ -24,7 +24,7 @@ function saveData() {
             response.json().then((json) => {
                 date = json;
                 localStorage.setItem("date", json);
-
+                localStorage.setItem("data", JSON.stringify(data));
             });
             alert("Saved changes");
         }
