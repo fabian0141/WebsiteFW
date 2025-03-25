@@ -52,6 +52,7 @@ function setMainLang() {
             }
 
             document.getElementById("project-title-text").textContent = "Professionelle / Persönliche Projekte";
+            document.getElementById("project-title-text-hint").textContent = "Mehr Projekte werden hinzugefügt.";
             document.getElementById("more-projects-button").textContent = "Zeige mehr";
             document.getElementById("less-projects-button").textContent = "Zeige weniger";
 
@@ -99,6 +100,7 @@ function setMainLang() {
             }
 
             document.getElementById("project-title-text").textContent = "Professional / Personal Projects";
+            document.getElementById("project-title-text-hint").textContent = "More projects will be added.";
             document.getElementById("more-projects-button").textContent = "Show more";
             document.getElementById("less-projects-button").textContent = "Show less";
 
