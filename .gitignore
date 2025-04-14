@@ -1,1 +1,4 @@
 *.exe
+
+/static/images/projects/*.png
+/static/images/projects/*.PNG
