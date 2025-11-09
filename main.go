@@ -148,10 +148,10 @@ func main() {
 	if settings[1] == "localhost" {
 		checkFatal(http.ListenAndServe(":80", nil))
 	} else {
-		go func() {
+		/*go func() {
 			err := http.ListenAndServe(":80", http.HandlerFunc(redirectToHTTPS))
 			checkFatal(err)
-		}()
+		}()*/
 
 		checkFatal(http.ListenAndServeTLS(settings[1], settings[2], settings[3], nil))
 	}
