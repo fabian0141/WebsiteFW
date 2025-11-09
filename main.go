@@ -153,6 +153,6 @@ func main() {
 			checkFatal(err)
 		}()
 
-		checkFatal(http.ListenAndServeTLS(":443", settings[2], settings[3], nil))
+		checkFatal(http.ListenAndServeTLS(settings[1], settings[2], settings[3], nil))
 	}
 }
