@@ -145,14 +145,14 @@ func main() {
 	readDataFile()
 	setupRoutes()
 
-	if settings[1] == "localhost" {
-		checkFatal(http.ListenAndServe(":80", nil))
+	if settings[1] == "local" {
+		checkFatal(http.ListenAndServe(settings[2], nil))
 	} else {
 		/*go func() {
 			err := http.ListenAndServe(":80", http.HandlerFunc(redirectToHTTPS))
 			checkFatal(err)
 		}()*/
 
-		checkFatal(http.ListenAndServeTLS(settings[1], settings[2], settings[3], nil))
+		checkFatal(http.ListenAndServeTLS(settings[2], settings[3], settings[4], nil))
 	}
 }
